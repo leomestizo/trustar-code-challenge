@@ -58,6 +58,7 @@
     "lint": "yarn run lint:code && yarn run lint:styles",
     "lint:code": "eslint . --ext .js,.jsx",
     "lint:styles": "stylelint \"./src/**/*.less\"",
-    "test": "jest --config=./config/jest/config.js --watch --verbose"
+    "test": "jest --config=./config/jest/config.js --verbose",
+    "test:watch": "yarn test --watch"
   }
 }
