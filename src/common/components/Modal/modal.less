@@ -1,0 +1,45 @@
+@modal-padding: 1em;
+@header-height: 60px;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px -1px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: @header-height;
+  max-height: @header-height;
+  padding: 0 @modal-padding;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.content {
+  padding: @modal-padding;
+  overflow: auto;
+  background-color: #fbfbfc;
+}

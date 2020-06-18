@@ -1,0 +1,39 @@
+.project-card {
+  margin-bottom: 1em;
+  border: 2px solid #e7e7e7;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &.selected {
+    border-color: #0e74e2;
+  }
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.285714286rem; // 18px.
+}
+
+.date-and-status-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.start-date {
+  margin-bottom: 5px;
+}
+
+.down-arrow-icon-container {
+  text-align: center;
+}
+
+.down-arrow-icon {
+  transition: transform 300ms;
+
+  &.icon-flipped {
+    transform: rotate(180deg);
+  }
+}

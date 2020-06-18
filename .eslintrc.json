@@ -1,0 +1,34 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "airbnb/rules/react",
+    "plugin:jest/recommended",
+    "plugin:jest/style"
+  ],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {},
+      "webpack": {
+        "config": "./config/webpack/baseConfig.js"
+      }
+    }
+  },
+  "rules": {
+    "no-plusplus": "off",
+    "no-param-reassign": ["error", {
+      "props": true,
+      "ignorePropertyModificationsFor": ["state"]
+    }],
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": ["./config/**/*.js", "./src/**/*.test.{js,jsx}"]
+    }],
+    "import/prefer-default-export": "off",
+    "react/button-has-type": "off",
+    "react/forbid-prop-types": ["error", { "forbid": ["array", "any"] }]
+  }
+}

@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font: 400 14px/1 'Open Sans', sans-serif;
+  background-color: #f5f7fb;
+}
+
+// TODO: Find a better place for this rule! It shouldn't be here...
+:global(#app-root) {
+  height: 100%;
+}
