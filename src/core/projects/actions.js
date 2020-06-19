@@ -11,19 +11,19 @@ export const {
 
 export const fetchProjects = () => async (dispatch) => {
   // TODO: Implement pagination!
-  const MINIMUM_NUMBER_OF_PROJECTS = 10;
+  const MAXIMUM_NUMBER_OF_PROJECTS = 10;
+  const projects = [];
 
   dispatch(fetchProjectsRequest());
 
   try {
     const response = await getProjects();
-    const projectsToFetch = response.data.projects.projects.slice(0, MINIMUM_NUMBER_OF_PROJECTS);
-    const fetchedProjects = await Promise.all(
-      projectsToFetch.map((projectToFetch) => getProjectById(projectToFetch.id)),
-    );
-    const projects = fetchedProjects.map((fetchedProject) => fetchedProject.data.project);
+    const projectsToFetch = response.data.projects.projects.slice(0, MAXIMUM_NUMBER_OF_PROJECTS);
 
-    dispatch(fetchProjectsResponse({ projects }));
+    projectsToFetch.forEach(async (projectToFetch) => {
+      const fetchedProject = await getProjectById(projectToFetch.id);
+      projects.push(fetchedProject.data.project);
+    });
   } catch (error) {
     notificationStore.addNotification({
       title: error.name,
@@ -36,6 +36,8 @@ export const fetchProjects = () => async (dispatch) => {
         showIcon: true,
       },
     });
+  } finally {
+    dispatch(fetchProjectsResponse({ projects }));
   }
 };
 
